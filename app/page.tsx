@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useState } from 'react'
 import styles from './page.module.css'
 
@@ -17,6 +18,7 @@ export default function Home() {
       collaboration: 'Real-time Collaboration',
       sharing: 'Easy Sharing',
       deployment: 'Deploy to Free Domain',
+      jokeGenerator: 'Joke Generator',
     },
     vi: {
       title: 'Classup - Ứng Dụng Học Tập',
@@ -28,6 +30,7 @@ export default function Home() {
       collaboration: 'Cộng Tác Thời Gian Thực',
       sharing: 'Chia Sẻ Dễ Dàng',
       deployment: 'Triển Khai Miễn Phí',
+      jokeGenerator: 'Trò Đùa Ngẫu Nhiên',
     },
     es: {
       title: 'Classup - La Aplicación de Aprendizaje',
@@ -39,6 +42,7 @@ export default function Home() {
       collaboration: 'Colaboración en Tiempo Real',
       sharing: 'Compartir Fácil',
       deployment: 'Implementar Dominio Gratuito',
+      jokeGenerator: 'Generador de Bromas',
     },
   }
 
@@ -48,6 +52,14 @@ export default function Home() {
     <main className={styles.main}>
       <nav className={styles.navbar}>
         <div className={styles.logo}>🌟 Classup</div>
+        <div className={styles.navLinks}>
+          <Link href="/" className={styles.navLink}>
+            Home
+          </Link>
+          <Link href="/jokes" className={styles.navLink}>
+            Jokes
+          </Link>
+        </div>
         <div className={styles.languageSelector}>
           <select value={language} onChange={(e) => setLanguage(e.target.value)}>
             <option value="en">English</option>
@@ -89,6 +101,18 @@ export default function Home() {
             <h3>{t.deployment}</h3>
             <p>Deploy your app instantly to a free domain</p>
           </div>
+        </div>
+      </section>
+
+      <section className={styles.tools}>
+        <h2>🛠️ Tools & Features</h2>
+        <div className={styles.toolGrid}>
+          <Link href="/jokes" className={styles.toolCard}>
+            <div className={styles.toolIcon}>😂</div>
+            <h3>Joke Generator</h3>
+            <p>Get random jokes using an external API</p>
+            <span className={styles.arrow}>→</span>
+          </Link>
         </div>
       </section>
 
